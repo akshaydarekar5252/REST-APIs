@@ -64,7 +64,14 @@ app.patch("/posts/:id",(req,res)=>{
     post.content = newContent;
     console.log(post);
    res.send("patch request is working ") 
-})
+});
+
+app.get("/posts/:id/edit",(req,res)=>{
+    let { id } = req.params;
+    let post = posts.find((p) => p.id === id);
+    res.render("edit.ejs"),{post};
+});
+
 
 
 
